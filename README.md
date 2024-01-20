@@ -1,0 +1,1 @@
+# terraform-aws-shopify-app-boilerplate
