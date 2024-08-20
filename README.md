@@ -1,4 +1,4 @@
-# Terraform AWS static website module
+# Terraform AWS Shopify application boilerplate
 
 <p>
    <a href="#">
@@ -75,7 +75,7 @@
 
 💪 Future-proof, **robust architecture**
 
-🐳 Docker commands under the hood 
+🐳 Docker commands under the hood
 
 ✅ Full **test coverage**
 
@@ -84,105 +84,9 @@
 <!-- Quick Start -->
 <a name="-quick-start-" />
 
-
 ## ┌ Quick Start ┐
 
 By using this project, you can save time and effort in setting up your AWS static website. Its comprehensive Terraform code and thoughtful configuration options allow you to create a reliable, scalable, and performant static website on AWS without any problems.
-
-Feel free to explore the project on [GitHub](https://github.com/nulllogic/terraform-aws-website-static-cloudfront-s3). Happy coding!
-
-<strong>1st step</strong>:
-
-Download two files `main.tf` and `provider.tf` from one of examples directories.
-
-<strong>2nd step</strong>:
-
-Run one of the following commands inside directory with those two files. <br />
-( it will use docker image with HashiCorp with TerraForm application inside)
-
-If you have used AWS CLI already, you can attach keys by running this command:
-
-```
-docker container run -it --rm -v $PWD:/tf -v ~/.aws:/root/.aws --workdir /tf hashicorp/terraform:latest init
-```
-
-If you haven't used AWS CLI, you can pass those keys directly, by running this command:
-( don't forget to replace XXXX with your AWS keys )
-```
-docker container run -it --rm -e TF_VAR_aws_access_key_id=XXXXXXXX -e TF_VAR_aws_secret_access_key=XXXXXXX -v $PWD:/tf --workdir /tf hashicorp/terraform:latest init
-```
-
-<strong>3rd step</strong>:
-
-Run the command, that you used previously, but instead of `init` at the end of the command, write `apply`
-
-It should look like this :
-```
-docker container run -it --rm -v $PWD:/tf -v ~/.aws:/root/.aws --workdir /tf hashicorp/terraform:latest apply
-```
-
-<strong>4th step</strong>:
-
-Run the command, that you used previously, but instead of `apply` at the end of the command, write `deploy`
-
-It should look like this :
-```
-docker container run -it --rm -v $PWD:/tf -v ~/.aws:/root/.aws --workdir /tf hashicorp/terraform:latest deploy
-```
-
-<strong>5th step</strong>:
-
-Profit ! 💪
-
-<br/>
-
-<!-- Module Examples -->
-<a name="-module-examples-" />
-
-## ┌ Module Examples ┐
-
-<details>
-  <summary>Example 1 -> CloudFront + S3</summary>
-    <p>
-
-   ```hcl
-  module "website-static-cloudfront-s3" {
-    source  = "nulllogic/website-static-cloudfront-s3/aws"
-
-    tags = {
-       Environment = "dev"
-       Terraform   = "true"
-    }
-  } 
-   ```
-   </p>
-  <br />
-  <img alt="Example 1" src="https://github.com/nulllogic/terraform-aws-website-static-cloudfront-s3/raw/master/.imgs/example1.png" />
-</details>
-
-<details> 
-<summary>Example 2 -> CloudFront + S3 + Domain</summary>
-  <p>
-
-  ```hcl
-  module "website-static-cloudfront-s3" {
-    source  = "nulllogic/website-static-cloudfront-s3/aws"
-
-    route53 = {
-      domain = "example.com"
-    }
-
-    tags = {
-       Environment = "dev"
-       Terraform   = "true"
-    }
-  } 
-   ```
-  </p>
-  <br />
-  <img alt="Example 2" src="https://github.com/nulllogic/terraform-aws-website-static-cloudfront-s3/raw/master/.imgs/example2.png" />
-</details>
-
 
 ## ┌ Contributing ┐
 
